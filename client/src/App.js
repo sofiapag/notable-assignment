@@ -30,12 +30,10 @@ class App extends Component {
   render () {
    return (
       <div className="App">
-        <header className="App-header">
-          Notable App
-        </header>
         <div className="sections">
           <div className="physicians">
-            <h2>Physicians</h2>
+            <h1>notable</h1>
+            <h2>PHYSICIANS</h2>
             <ul>
               {
                 this.state.physicians?.map(physician => {
@@ -47,7 +45,7 @@ class App extends Component {
                 })
               }
             </ul>
-            <button>Logout</button>
+            <button className="button">Logout</button>
           </div>
           <div className="appointments">
             <h2>{this.state.selectedPhysician?.title} {this.state.selectedPhysician?.firstName} {this.state.selectedPhysician?.lastName}</h2>

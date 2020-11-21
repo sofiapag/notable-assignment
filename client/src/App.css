@@ -1,3 +1,7 @@
+html {
+  font-size: 24px;
+}
+
 .App-header {
   background-color: #FFFFFF;
   min-height: 50vh;
@@ -14,15 +18,53 @@
   justify-content: center;
 }
 
-.appointments {
-  width: 40%;
-}
-
 .physicians {
+  background-color: #F1F1F4;
+  padding: 2rem;
   width: 30%;
 }
 
+h1 {
+  color: #2968D5;
+}
+
 .physicians li:hover {
+  background-color: #2968D5;
+  color: white;
   cursor: pointer;
-  background-color: #CCC;
+}
+
+.physicians li {
+  height: 2rem;
+  padding: 0.5rem;
+}
+
+.appointments {
+  width: 40%;
+  padding: 2rem;
+}
+
+.appointments td, th {
+  width: 10%;
+  height: 2rem;
+}
+
+.appointments tr:nth-child(2n+1){
+  background-color: #F1F1F4;
+}
+
+.appointments th {
+  background-color: #2968D5;
+  color: white;
+  padding: 0.5rem;
+  text-align: left;
+}
+
+.button {
+  background-color: #2968D5;
+  border-radius: 5px;
+  color: white;
+  font-size: 1rem;
+  width: 100px;
+  height: 50px;
 }
