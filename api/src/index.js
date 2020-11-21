@@ -1,10 +1,12 @@
 const express = require('express');
-const http = require('http')
 const low = require('lowdb')
-const FileSync = require('lowdb/adapters/FileSync')
+const FileSync = require('lowdb/adapters/FileSync');
+var cors = require("cors");
 
 const app = express();
+var router = express.Router();
 app.use(express.json());
+app.use(cors());
 
 const db = low(new FileSync('./db.json'));
  db.read();
@@ -40,8 +42,10 @@ app.get('/appointments/:physicianId', async (req, res) => {
   res.json(data);
 });
 
-const port = 8000;
+const port = 9000;
 
 app.listen(port, () => {
   console.log(`Notable app listening at http://localhost:${port}`)
 })
+
+module.export = router;
