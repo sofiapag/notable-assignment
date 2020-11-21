@@ -55,3 +55,7 @@ curl http://localhost:9000/physicians
 
 # GET all appointments by phyiscian ID
 curl http://localhost:8000/appointments/a2
+```
+
+## Frontend
+The front end is still in progress. I was running into CORS errors, and was unable to parse the response from the api. 
