@@ -5,58 +5,76 @@ class App extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { physicians: [], appointments: [] };
+    this.state = { physicians: [], appointments: [], selectedPhysician: {} };
   }
 
   getPhysicians() {
     fetch("http://localhost:9000/physicians")
-        .then(res => res.text())
-        .then(res => this.setState({ physicians: res }))
-        .catch(err => err);
+      .then(res => res.json())
+      .then(res => this.setState({ physicians: res }))
+      .catch(err => err);
   };
 
-  getAppointments(physicianId) {
+  getAppointments(physicianId){
     fetch(`http://localhost:9000/appointments/${physicianId}`)
-    .then(res => res.text())
-    .then(res => this.setState({ appointments: res }))
-    .catch(err => err);
+      .then(res => res.json())
+      .then(res => this.setState({ appointments: res }))
+      .catch(err => err);
+    this.setState({ selectedPhysician: this.state.physicians.find(physician => physician.id === physicianId) });
   }
 
   componentDidMount() {
-    this.getPhysicians()
-    this.getAppointments('b2');
+    this.getPhysicians();
   }
-  render() {
-    return (
+
+  render () {
+   return (
       <div className="App">
         <header className="App-header">
           Notable App
         </header>
-        <p className="App-intro">{this.state.physicians}</p>
         <div className="sections">
-          {/* {
-            JSON.parse(`{"data": ${this.state.physicians}}`).data.forEach( physician => {
-              return (
-                <p>{physician.firstName}</p>
-              )
-            })
-          } */}
-          <div>
+          <div className="physicians">
             <h2>Physicians</h2>
-            <p
-              // onClick={this.getAppointments('b2')}
-            >Krieger, Algernop</p>
+            <ul>
+              {
+                this.state.physicians?.map(physician => {
+                  return (
+                    <li key={physician.id} onClick={() => {this.getAppointments(physician.id)}}>
+                      {physician.lastName}, {physician.firstName}
+                    </li>
+                  )
+                })
+              }
+            </ul>
+            <button>Logout</button>
           </div>
-          <div>
-            <h2>Appointments</h2>
-            <p>{this.state.appointments}</p>
+          <div className="appointments">
+            <h2>{this.state.selectedPhysician?.title} {this.state.selectedPhysician?.firstName} {this.state.selectedPhysician?.lastName}</h2>
+            <h4>{this.state.selectedPhysician?.email}</h4>
             <table>
-              <tr>
-                1
-                <td>Sterling Archer</td>
-                <td>8:00AM</td>
-                <td>New Patient</td>
-              </tr>
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Name</th>
+                  <th>Time</th>
+                  <th>Kind</th>
+                </tr>
+              </thead>
+              <tbody>
+                {
+                  this.state.appointments?.map(appt => {
+                    return (
+                      <tr>
+                        <td>{appt.number}</td>
+                        <td>{appt.patientName}</td>
+                        <td>{appt.time}</td>
+                        <td>{appt.kind}</td>
+                      </tr>
+                    )
+                  })
+                }
+              </tbody>
             </table>
           </div>
 

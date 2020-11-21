@@ -1,28 +1,28 @@
 .App-header {
   background-color: #FFFFFF;
-  min-height: 100vh;
+  min-height: 50vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: 2rem;
   color: black;
 }
 
 .sections {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
 }
 
-.sections div {
-  max-width: 50%;
+.appointments {
+  width: 40%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.physicians {
+  width: 30%;
+}
+
+.physicians li:hover {
+  cursor: pointer;
+  background-color: #CCC;
 }
