@@ -9,6 +9,15 @@
   color: black;
 }
 
+.sections {
+  display: flex;
+  justify-content: space-around;
+}
+
+.sections div {
+  max-width: 50%;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
