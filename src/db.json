@@ -1,0 +1,63 @@
+{
+  "physicians": [
+    {
+      "id": "a1",
+      "firstName": "Julius",
+      "lastName": "Hibbert",
+      "title": "Dr.",
+      "email": "hibbert@notablehealth.com"
+    },
+    {
+      "id": "b2",
+      "firstName": "Algernop",
+      "lastName": "Krieger",
+      "title": "Dr.",
+      "email": "krieger@notablehealth.com"
+    },
+    {
+      "id": "c3",
+      "firstName": "Nick",
+      "lastName": "Riviera",
+      "title": "Dr.",
+      "email": "riviera@notablehealth.com"
+    }
+  ],
+  "appointments": [
+    {
+      "number": 1,
+      "patientName": "Sterling Archer",
+      "doctorId": "b2",
+      "time": "8:00AM",
+      "kind": "New Patient"
+    },
+    {
+      "number": 2,
+
+      "patientName": "Cyril Figis",
+      "doctorId": "b2",
+      "time": "8:30AM",
+      "kind": "Follow-up"
+    },
+    {
+      "number": 3,
+      "patientName": "Ray Gilette",
+      "doctorId": "b2",
+      "time": "9:00AM",
+      "kind": "Follow-up"
+    },
+    {
+      "number": 4,
+      "patientName": "Lana Kane",
+      "doctorId": "b2",
+      "time": "9:30AM",
+      "kind": "New Patient"
+    },
+    {
+      "number": 5,
+      "patientName": "Pam Poovey",
+      "doctorId": "b2",
+      "time": "10:00AM",
+      "kind": "New Patient"
+    }
+  ]
+}

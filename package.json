@@ -1,0 +1,19 @@
+{
+  "name": "notable-assignment",
+  "version": "1.0.0",
+  "description": "notable assignment",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "watch": "nodemon src/index.js",
+    "test": "npm run jest"
+  },
+  "author": "Sofia Paganin",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^26.6.3",
+    "nodemon": "^2.0.6",
+    "express": "^4.17.1",
+    "lowdb": "^1.0.0"
+  }
+}
