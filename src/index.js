@@ -6,10 +6,6 @@ const FileSync = require('lowdb/adapters/FileSync')
 const app = express();
 app.use(express.json());
 
-// const adapter = new FileSync('db.json')
-// const db = low(adapter);
-// db.read();
-
 const db = low(new FileSync('./db.json'));
  db.read();
 
@@ -22,8 +18,7 @@ app.get('/', (res) => {
  * GET
  */
 app.get('/physicians', async (req, res) => {
-  const data = await db.get('physicians')
-    .value();
+  const data = await db.get('physicians');
   if (!data) {
     return res.status(404).json({ error: 'Not found' });
   }
@@ -35,7 +30,9 @@ app.get('/physicians', async (req, res) => {
  * GET
  */
 app.get('/appointments/:physicianId', async (req, res) => {
-  const data = await db.get('physicians')
+  console.log(req.params);
+  const data = await db.get('appointments')
+    .filter({ physicianId: req.params.physicianId })
     .value();
   if (!data) {
     return res.status(404).json({ error: 'Not found' });
